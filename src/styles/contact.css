@@ -1,0 +1,24 @@
+.contact__grid{ display:grid; grid-template-columns: 1fr 1fr; gap:24px }
+.contact__bullets{ color: var(--gray-600); padding-left: 18px }
+.contact__bullets li{ margin: 6px 0 }
+
+.form{ display:grid; gap:12px }
+.form label{ display:grid; gap:6px; color:#1f1f1f }
+.form input,.form textarea{
+  background:#ffffff;
+  border:1px solid var(--stroke);
+  border-radius:12px; padding:10px; color:var(--text);
+}
+.form input::placeholder,.form textarea::placeholder{ color: var(--gray-400) }
+.form input:focus,.form textarea:focus{
+  outline: 3px solid color-mix(in oklab, var(--brand) 25%, white);
+  outline-offset: 1px;
+}
+
+@media (max-width: 900px){ .contact__grid{ grid-template-columns:1fr } }
+
+.titulocontact{
+    color: var(--brand);
+    margin-top: 0;
+    font-size: 50px;
+}

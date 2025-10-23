@@ -1,0 +1,32 @@
+.demos .demo__grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:16px }
+.demo__card{
+  border:1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding:16px;
+  background: #ffffff;
+  box-shadow: var(--shadow);
+}
+.demo__card h3{ color: var(--brand); margin-top: 0 }
+.demo__card p{ color: var(--gray-600) }
+
+.demo__viz{
+  display:flex; align-items:flex-end; gap:8px; height:120px;
+  border:1px dashed var(--stroke);
+  border-radius:12px; padding:10px; margin-top:8px;
+  background: #fff;
+}
+.demo__viz .bar{
+  flex:1;
+  background: linear-gradient(180deg, var(--brand), var(--brand-2));
+  border-radius:8px;
+}
+
+@media (max-width: 1000px){ .demos .demo__grid{ grid-template-columns:1fr } }
+
+.tituloNosotros{
+    font-size: clamp(60px, 6vw, 48px);
+    margin-top: 0;
+    color: var(--brand);
+    background-color: transparent;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

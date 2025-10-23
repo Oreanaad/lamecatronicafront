@@ -1,0 +1,70 @@
+.hero{
+  position: relative;
+  z-index: 0;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text);
+  overflow: hidden;
+  /* background: #fff; 👈 eliminar esta línea */
+}
+
+.hero__video-wrapper{
+  position: absolute;
+  inset: 0;
+  z-index: -1; /* 👈 así siempre queda detrás del contenido */
+  overflow: hidden;
+}
+
+.hero__video{
+  display: block;          /* 🔧 evita gaps raros */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__overlay{
+  position: absolute;
+  inset: 0;
+  z-index: 1;              /* 🔧 overlay por encima del video */
+  background: rgba(118, 14, 14, 0.326); /* vinotinto MUY suave */
+  pointer-events: none;    /* 🔧 no “captura” clics */
+}
+
+
+.hero__content{
+  position: relative;
+  z-index: 2;              /* 🔧 texto por encima de overlay y video */
+  max-width: 900px;
+}
+
+.hero__content h1{
+  font-size: clamp(70px, 6vw, 64px);
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 20px;
+  color: var(--bg);
+}
+
+.hero__content{
+  padding: 20px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+
+.hero__cta{
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+@media (max-width: 768px){
+  .hero{ height: 56vh; }
+}
+
+.hero__content h1,
+.hero__content p {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}

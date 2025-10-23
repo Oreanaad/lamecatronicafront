@@ -1,0 +1,78 @@
+.machine-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 👈 siempre 3 columnas */
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .machine-list-grid {
+    grid-template-columns: repeat(2, 1fr); /* tablets */
+  }
+}
+
+@media (max-width: 640px) {
+  .machine-list-grid {
+    grid-template-columns: 1fr; /* móviles */
+  }
+}
+
+
+.machine-list-card{
+  background:#fff;
+  border:1px solid var(--stroke,#e5e7eb);
+  border-radius:12px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+
+.machine-list-media{
+  position:relative;
+  z-index:0;
+  aspect-ratio:16/9;
+  background:#f7f7f7;
+}
+
+.machine-list-img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+
+.machine-list-body{
+  position:relative;
+  z-index:2;
+  padding:14px 14px 16px;
+  background:#fff;
+}
+
+.machine-list-title{
+  margin:0 0 8px;
+  font-weight:700;
+  line-height:1.2;
+}
+
+.machine-list-link{
+  text-decoration:none;
+  color:#111;
+}
+
+.machine-list-link:hover{
+  color:var(--brand,#8b0c0c);
+}
+
+.machine-list-price{
+  color:var(--brand,#8b0c0c);
+  font-weight:800;
+  font-size:1rem;
+  line-height:1;
+  margin-top:6px;
+}
+
+.tituloMaquina{
+    color: var(--brand);
+    margin-top: 0;
+    font-size: 60px;
+}

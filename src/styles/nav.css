@@ -1,0 +1,63 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: saturate(180%) blur(8px);
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid var(--stroke);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height:90px;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 80px;   /* ajustá según tu logo */
+  width: auto;
+  display: block;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav__links a {
+  color: #444;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav__links a:hover {
+  color: var(--brand);
+}
+
+.nav__links a.btn {
+  color: #fff; /* botón sólido */
+}
+
+.nav__burger {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: var(--brand);
+}
+
+@media (max-width: 800px) {
+  .nav__links {
+    display: none;
+  }
+  .nav__burger {
+    display: inline-flex;
+  }
+}

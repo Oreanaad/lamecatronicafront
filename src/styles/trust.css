@@ -1,0 +1,10 @@
+.trust{ padding:36px 0; background:#fff }
+.trust__eyebrow{ text-align:center; color:var(--gray-600); margin-bottom:10px }
+.trust__logos{
+  display:grid; grid-template-columns: repeat(5, minmax(0,1fr));
+  gap:20px; align-items:center; opacity:.9
+}
+.trust__logos img{
+  max-width: 120px; margin-inline:auto; filter: grayscale(1); opacity:.9
+}
+@media (max-width: 800px){ .trust__logos{ grid-template-columns:repeat(3,1fr) } }

@@ -1,0 +1,56 @@
+*{ box-sizing: border-box }
+html,body,#root{ height:100% }
+:root { color-scheme: light; }
+
+html{ background:#ffffff !important; }
+
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial;
+  color: var(--text);
+  background: var(--bg) !important; /* sin gradientes oscuros */
+}
+
+/* Utilidades */
+.container{ width:min(1120px, 92%); margin-inline:auto }
+.section{ padding: 20px 10px}
+.h2{ font-size: clamp(24px, 3.2vw, 32px); margin:0; color: var(--brand); }
+.lead{ color: var(--gray-600); margin: 0 0 24px }
+.chips{ display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:16px 0 0 }
+.chip{ border:1px solid var(--stroke); padding:8px 12px; border-radius:999px; color:var(--gray-600); background:#fff }
+.eyebrow{ display:inline-block; letter-spacing:.12em; color:var(--gray-600); text-transform:uppercase; font-size:12px; margin-bottom:10px }
+
+/* Botones */
+.btn{
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  border:none; color:#fff;
+  padding:12px 18px; border-radius:12px; font-weight:600;
+  cursor:pointer; box-shadow: var(--shadow); text-decoration:none; display:inline-block
+}
+.btn:hover{ filter: brightness(1.05) }
+.btn:focus{ outline: 3px solid color-mix(in oklab, var(--brand) 40%, white); outline-offset: 2px }
+.btn--sm{ padding:8px 12px; border-radius:10px; font-size:14px }
+.btn--ghost{
+  background: transparent;
+  color: var(--brand);
+  border: 2px solid var(--brand);
+}
+.btn--ghost:hover{ background: color-mix(in oklab, var(--brand) 10%, white) }
+
+/* Stats / Quotes */
+.stats{ display:grid; grid-template-columns: repeat(4,1fr); gap:16px }
+.stat{ border:1px solid var(--stroke); border-radius:var(--radius); padding:20px; background:#fff }
+.stat__kpi{ font-size:28px; font-weight:800; color: var(--brand) }
+.stat__label{ color: var(--gray-600) }
+@media (max-width: 900px){ .stats{ grid-template-columns:repeat(2,1fr) } }
+@media (max-width: 560px){ .stats{ grid-template-columns:1fr } }
+
+.quotes{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px }
+.quote{ border:1px solid var(--stroke); padding:20px; border-radius:var(--radius); background:#fff }
+.quote blockquote{ margin:0 0 10px; color:#1f1f1f }
+.quote figcaption{ color: var(--gray-600) }
+@media (max-width: 900px){ .quotes{ grid-template-columns:1fr } }
+
+/* Acento de texto vinotinto */
+.accent{ color: #bf0606 }
+.text-brand{ color: var(--brand) }

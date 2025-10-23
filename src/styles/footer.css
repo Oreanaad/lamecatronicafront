@@ -1,0 +1,19 @@
+.footer{
+  border-top:1px solid var(--stroke);
+  margin-top:40px;
+  background:#ffffff;
+}
+.footer__inner{
+  display:flex; align-items:flex-start; justify-content:space-between;
+  gap:20px; padding:24px 0;
+}
+.footer__inner strong{ color: var(--brand) }
+.footer__inner p{ color: var(--gray-600); margin: 6px 0 0 }
+
+.footer__nav{ display:flex; gap:16px }
+.footer__nav a{ color:#444; text-decoration:none }
+.footer__nav a:hover{ color: var(--brand) }
+
+.footer__bottom{
+  padding:14px 0; border-top:1px solid var(--stroke); color:var(--gray-600)
+}

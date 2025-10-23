@@ -1,0 +1,2 @@
+/* Separadores suaves entre secciones claras */
+.section + .section{ border-top:1px solid var(--stroke) }
