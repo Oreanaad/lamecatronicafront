@@ -1,16 +1,16 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Machines from "./components/Machines";
-import MachineDetail from "./components/MachineDetails"; // si el archivo se llama MachineDetail.jsx, corrige el import
-import Solutions from './components/Solutions'
-import Industries from './components/Industries'
-import Demos from './components/Demos'
-import Stats from './components/Stats'
-import Testimonials from './components/Testimonials'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import Navbar from './Components/Navbar'
+import Hero from './Components/Hero'
+import Machines from "./Components/Machines";
+import MachineDetail from "./Components/MachineDetails"; // si el archivo se llama MachineDetail.jsx, corrige el import
+import Solutions from './Components/Solutions'
+import Industries from './Components/Industries'
+import Demos from './Components/Demos'
+import Stats from './Components/Stats'
+import Testimonials from './Components/Testimonials'
+import Contact from './Components/Contact'
+import Footer from './Components/Footer'
 
 function Home() {
   return (
