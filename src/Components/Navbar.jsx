@@ -14,7 +14,7 @@ export default function Navbar() {
           <a href="#soluciones">Servicios</a>
           <a href="#industrias">Nosotros</a>
           <a href="#maquinas">Productos</a>
-           <a href="https://login.lamecatronica.com/wwpbaseobjects.notauthorized.aspx?GxObject=Home3">Login</a>
+           <a href="http://lamecatronicac.myvnc.com//wwpbaseobjects.notauthorized.aspx?GxObject=Home4">Login</a>
           <a href="#contacto" className="btn btn--sm">
             Contáctanos
           </a>
