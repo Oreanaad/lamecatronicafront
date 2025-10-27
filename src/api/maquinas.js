@@ -1,7 +1,7 @@
 const API_BASE = import.meta.env.VITE_API_BASE || ""; // ej: http://localhost:4000
 
 export async function fetchMaquinas() {
-  const res = await fetch(`${API_BASE}/api/maquinas`, { credentials: "omit" });
+  const res = await fetch(`https://lamecatronicanew.onrender.com/api/maquinas`, { credentials: "omit" });
   return await parseJsonOrThrow(res);
 }
 
