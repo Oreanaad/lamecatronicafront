@@ -12,7 +12,7 @@ export default function Hero() {
           muted
           playsInline
         >
-          <source src="../../public/hero.mp4" type="video/mp4" />
+          <source src="/hero.mp4" type="video/mp4" />
           <source src="/videos/hero.webm" type="video/webm" />
           Tu navegador no soporta video HTML5.
         </video>
