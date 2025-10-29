@@ -45,22 +45,9 @@ export default function Contact() {
           </ul>
         </div>
 
-        <form className="form" onSubmit={handleSubmit}>
-          <label>
-            <span>Nombre</span>
-            <input name="nombre" placeholder="Tu nombre" required />
-          </label>
-          <label>
-            <span>Email</span>
-            <input name="email" type="email" placeholder="nombre@empresa.com" required />
-          </label>
-          <label>
-            <span>Mensaje</span>
-            <textarea name="mensaje" rows="4" placeholder="Contanos brevemente el desafío…" />
-          </label>
-          <button className="btn" type="submit">Enviar</button>
-          {status && <p style={{ marginTop: 10 }}>{status}</p>}
-        </form>
+        <div>
+          <img src="../../public/contac.png" className="logo"></img>
+          </div>
       </div>
     </section>
   );

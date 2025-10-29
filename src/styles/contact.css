@@ -22,3 +22,10 @@
     margin-top: 0;
     font-size: 50px;
 }
+
+
+.logo {
+  height: 500px;   /* ajustá según tu logo */
+  width: auto;
+  display: block;
+}

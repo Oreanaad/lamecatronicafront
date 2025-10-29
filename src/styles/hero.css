@@ -47,6 +47,11 @@
   color: var(--bg);
 }
 
+@media (max-width: 480px){
+  .hero__content h1{ font-size: clamp(35px, 3vw, 34px);; }
+}
+
+
 .hero__content{
   padding: 20px;
   border-radius: 12px;
@@ -67,4 +72,6 @@
 .hero__content h1,
 .hero__content p {
   text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+
 }
+

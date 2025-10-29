@@ -1,9 +1,9 @@
 import '../styles/testimonials.css'
 export default function Testimonials(){
 const data = [
-{ quote: 'Nos migraron el checkout y subimos la conversión en un mes.', author: 'Directora e‑commerce' },
-{ quote: 'Integramos ERP + tienda + logística sin dolores.', author: 'COO retail' },
-{ quote: 'El panel IoT nos dio visibilidad real del piso de planta.', author: 'Jefe de planta' },
+{ quote: 'La máquina superó nuestras expectativas. Rendimiento superior y cero fallas en la producción. Una inversión que vale cada centavo.', author: 'Ing. Marcos R., Metalúrgica del Centro' },
+{ quote: 'Necesitábamos un equipo que no parara. La [Nombre de la Máquina] es robusta y totalmente fiable. Su servicio técnico es rápido, aunque casi nunca lo necesitamos.', author: 'Lucas V., Jefe de Obra' },
+{ quote: "Fácil de usar y nos permitió duplicar la velocidad de corte. Menos tiempo de trabajo, más ganancias. Totalmente recomendados.",author: 'Sofía E., Manufacturas 3D, author' },
 ]
 return (
 <section className="section">
