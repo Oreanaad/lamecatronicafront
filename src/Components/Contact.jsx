@@ -46,7 +46,7 @@ export default function Contact() {
         </div>
 
         <div>
-          <img src="../../public/contac.png" className="logo"></img>
+          <img src="/contac.png" className="logo"></img>
           </div>
       </div>
     </section>
