@@ -29,7 +29,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;              /* 🔧 overlay por encima del video */
-  background: rgba(118, 14, 14, 0.326); /* vinotinto MUY suave */
+  background: rgba(48, 5, 5, 0.669); /* vinotinto MUY suave */
   pointer-events: none;    /* 🔧 no “captura” clics */
 }
 
@@ -41,7 +41,7 @@
 }
 
 .hero__content h1{
-  font-size: clamp(70px, 6vw, 64px);
+  font-size: clamp(40px, 6vw, 64px);
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   margin-bottom: 20px;
   color: var(--bg);

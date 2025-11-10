@@ -3,11 +3,11 @@
   border:1px solid var(--stroke);
   border-radius: var(--radius);
   padding:16px;
-  background: #ffffff;
+  background: #8b0c0c;
   box-shadow: var(--shadow);
 }
-.demo__card h3{ color: var(--brand); margin-top: 0 }
-.demo__card p{ color: var(--gray-600) }
+.demo__card h3{ color: #fff; margin-top: 0 }
+.demo__card p{ color: #fff }
 
 .demo__viz{
   display:flex; align-items:flex-end; gap:8px; height:120px;

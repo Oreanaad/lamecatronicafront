@@ -28,7 +28,7 @@ export default function Hero() {
       >
         <h1 className="hero__title">
           
-        Máquinas de embalaje y envasado  <span className="accent">a tu medida</span>  
+  Máquinas para Estrichado de Pallet, Embalaje General y de Envasado de  <span className="accent">Productos a tu medida</span>  
         </h1>
       
       </motion.div>

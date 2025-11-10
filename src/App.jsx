@@ -18,11 +18,11 @@ function Home() {
       <Hero/>
       <Industries/>
       <Demos/>
-      <Solutions/>
+  
       <Machines/>
   <Hero/>
-      <Testimonials/>
-      <Contact/>
+   
+     
     </main>
   );
 }

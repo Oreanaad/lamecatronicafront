@@ -1,7 +1,7 @@
 .footer{
   border-top:1px solid var(--stroke);
   margin-top:40px;
-  background:#ffffff;
+  background-color: #efeeee;
 }
 .footer__inner{
   display:flex; align-items:flex-start; justify-content:space-between;
@@ -16,4 +16,61 @@
 
 .footer__bottom{
   padding:14px 0; border-top:1px solid var(--stroke); color:var(--gray-600)
+}
+
+/* Estilo básico para la nueva sección */
+.social__icons h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--brand) 
+}
+
+/* Contenedor de los iconos para espaciarlos */
+.icon__list {
+    display: flex;
+    gap: 15px; /* Espacio entre los iconos */
+    margin-top: 10px;
+}
+
+/* Estilo de los enlaces de iconos */
+.icon__list a {
+    color:  var(--brand) ; /* O el color que uses para tu footer */
+    transition: color 0.2s;
+}
+
+.icon__list a:hover {
+    color: #301616; /* Color de hover, ej: dorado */
+}
+
+/* Asegura que los enlaces del footer estén distribuidos */
+.footer__inner {
+    display: flex;
+    justify-content: space-between; /* Distribuye las tres secciones */
+    flex-wrap: wrap; /* Permite que se envuelvan en pantallas pequeñas */
+    gap: 20px;
+    padding-bottom: 30px;
+}
+
+/* Estilo para la navegación del footer, si es necesario */
+.nav__links_footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+
+
+.nav__links_footer a {
+  color: #444;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav__links_footer a:hover {
+  color: var(--brand);
+}
+
+.nav__links_footer a.btn {
+  color: #fff; /* botón sólido */
 }
