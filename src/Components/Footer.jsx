@@ -51,12 +51,9 @@ return (
 
         <nav className="nav__links_footer">
             {/* ... Tu navegación actual ... */}
-            <a href="#soluciones">Servicios</a>
             <a href="#industrias">Nosotros</a>
             <a href="#maquinas">Productos</a>
-            <a href="#contacto" className="btn btn--sm">
-                Contáctanos
-            </a>
+
         </nav>
     </div>
     <div className="container footer__bottom">
