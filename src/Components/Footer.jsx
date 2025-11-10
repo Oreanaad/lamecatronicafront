@@ -27,22 +27,22 @@ return (
             <h3>Síguenos</h3>
             <div className="icon__list">
                 {/* YouTube */}
-                <a href="URL_DE_TU_YOUTUBE" target="_blank" rel="noopener noreferrer" title="YouTube">
+                <a href="https://www.youtube.com/@mecatronicacarbajal" target="_blank" rel="noopener noreferrer" title="YouTube">
                     <FaYoutube size={30} />
                 </a>
                 
                 {/* Facebook */}
-                <a href="URL_DE_TU_FACEBOOK" target="_blank" rel="noopener noreferrer" title="Facebook">
+                <a href="https://www.facebook.com/MecatronicaCarbajal?mibextid=wwXIfr&rdid=pu3FVe5dXAbr8AA4&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17NV2wpm7i%2F%3Fmibextid%3DwwXIfr#" target="_blank" rel="noopener noreferrer" title="Facebook">
                     <FaFacebookF size={30} />
                 </a>
                 
                 {/* Instagram */}
-                <a href="URL_DE_TU_INSTAGRAM" target="_blank" rel="noopener noreferrer" title="Instagram">
+                <a href="https://www.instagram.com/mecatcarbajal/?igsh=c3o5dGN5Mm1peGtw&utm_source=qr#" target="_blank" rel="noopener noreferrer" title="Instagram">
                     <FaInstagram size={30} />
                 </a>
                 
                 {/* WhatsApp (usa la URL de API de WhatsApp) */}
-                <a href="https://wa.me/5493813544818" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                <a href="https://wa.me/+543813544818" target="_blank" rel="noopener noreferrer" title="WhatsApp">
                     <FaWhatsapp size={30} />
                 </a>
             </div>
