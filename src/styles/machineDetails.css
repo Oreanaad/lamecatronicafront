@@ -1,13 +1,52 @@
-.machine-detail-grid{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-top:24px}
-@media (max-width:768px){.machine-detail-grid{grid-template-columns:1fr}}
-.machine-detail-media{position:relative;background:#f7f7f7;border-radius:8px;overflow:hidden}
-.machine-detail-media-frame img{width:100%;height:auto;display:block;object-fit:cover}
-.machine-detail-aside{display:flex}
-.machine-detail-box{background:#fff;border:1px solid var(--stroke,#e5e7eb);border-radius:12px;padding:16px;width:100%}
-.machine-detail-box h3{margin:0 0 12px;color:var(--brand,#8b0c0c)}
-.machine-detail-specs{list-style:none;padding:0;margin:0 0 16px}
-.machine-detail-specs li{margin-bottom:6px;font-size:.95rem}
-.machine-detail-title{font-size:2rem;font-weight:800;margin:0 0 12px}
-.machine-detail-price{color:var(--brand,#8b0c0c);font-weight:800;font-size:1.2rem;margin-bottom:16px} /* << antes estaba casi blanco */
-.machine-detail-desc{margin-top:32px}
-.machine-detail-desc h3{margin-bottom:8px;color:#333}
+/* Archivo: machineDetails.css */
+
+/* --- Contenedor de Dos Columnas --- */
+.machine-details-content-wrapper {
+    display: flex; /* Habilita el diseño flexible */
+    gap: 40px;     /* Espacio entre la imagen y los detalles */
+    flex-wrap: wrap; /* Permite que las columnas se apilen en móviles */
+}
+
+/* --- Columna Izquierda (Imagen) --- */
+.machine-details-media {
+    flex: 1 1 40%; /* Toma el 40% del espacio en escritorio */
+    max-width: 40%;
+}
+
+.main-machine-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil como el libro */
+}
+
+/* --- Columna Derecha (Detalles) --- */
+.machine-details-info {
+    flex: 1 1 50%; /* Toma el 50% del espacio restante */
+}
+
+/* --- Caja de Precio (El recuadro amarillo) --- */
+.machine-purchase-box {
+    background-color: #F8F5EE; /* Fondo claro o amarillo muy tenue */
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid #e0d9c9;
+}
+
+.machine-price-display {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333; /* O un color oscuro */
+    margin-bottom: 10px;
+}
+
+/* --- Media Queries (Para móviles) --- */
+@media (max-width: 768px) {
+    .machine-details-content-wrapper {
+        flex-direction: column; /* Apila las columnas */
+    }
+    .machine-details-media {
+        max-width: 100%; /* La imagen ocupa todo el ancho */
+    }
+}

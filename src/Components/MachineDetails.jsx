@@ -1,74 +1,82 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { fetchMaquinas, formatMoney } from "../api/maquinas";
-import "../styles/machineDetails.css"; // 👈 archivo nuevo
+import { useParams } from "react-router-dom"; // 👈 NECESARIO
+import { fetchMaquinaById, formatMoney } from "../api/maquinas"; 
+import "../styles/machineDetails.css"; 
 
-export default function Machines(){
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [err, setErr] = useState("");
+export default function MachineDetails(){
+const { id } = useParams(); // 🚨 CLAVE: Obtiene el ID de la URL
+ const [machine, setMachine] = useState(null);
+const [loading, setLoading] = useState(true);
+const [err, setErr] = useState("");
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await fetchMaquinas();
-        const visibles = (data || []).filter(x => x.maquinaWebEstado === true || x.maquinaWebEstado === 1);
-        setItems(visibles);
-      } catch (e) {
-        console.error("fetchMaquinas error:", e);
-        setErr(e.message || "Error cargando máquinas");
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, []);
+useEffect(() => {
+ (async () => {
+ try {
 
-  if (loading) return <section className="section"><div className="container">Cargando máquinas…</div></section>;
-  if (err) return (
-    <section className="section">
-      <div className="container">
-        <div style={{color:"crimson", fontWeight:700, marginBottom:8}}>Error:</div>
-        <pre style={{whiteSpace:"pre-wrap"}}>{err}</pre>
-        <div style={{marginTop:8, color:"#555"}}>Revisá VITE_API_BASE y que el backend devuelva JSON.</div>
-      </div>
-    </section>
-  );
-  if (!items.length) return <section className="section"><div className="container">No hay máquinas publicadas.</div></section>;
+ const data = await fetchMaquinaById(id); 
+setMachine(data);
+ } catch (e) {
+ console.error("fetchMaquinaById error:", e);
+ setErr(e.message || `Error cargando máquina ${id}`);
+ } finally {
+ setLoading(false);
+}
+})();
+ }, [id]); // El efecto se ejecuta cuando el ID cambia
 
-  return (
-    <section id="soluciones" className="section">
-      <div className="container">
-        <h2 className="h2">Máquinas disponibles</h2>
+    // --- (Tu JSX de renderizado va aquí) ---
+    if (loading) return <section className="section"><div className="container">Cargando detalles…</div></section>;
+    if (err) return <section className="section"><div className="container" style={{color:"crimson"}}>{err}</div></section>;
+    if (!machine) return <section className="section"><div className="container">Máquina no encontrada.</div></section>;
 
-        <div className="machine-list-grid">
-          {items.map(m => (
-            <article className="machine-list-card" key={m.maquinaId}>
-              <div className="machine-list-media">
-                <img
-                  src={m.imagenUrlChica || m.imagenUrl || "/placeholder-machine.jpg"}
-                  alt={m.maquinaNombre}
-                  className="machine-list-img"
-                  loading="lazy"
-                />
-              </div>
-
-              <div className="machine-list-body">
-                <h3 className="machine-list-title">
-                  <Link to={`/maquina/${m.maquinaId}`} className="machine-list-link">
-                    {m.maquinaNombre}
-                  </Link>
-                </h3>
-
-                <div className="machine-list-price">
-                  {m.maquinaPrecio != null && !Number.isNaN(+m.maquinaPrecio)
-                    ? formatMoney(m.maquinaPrecio)
-                    : "Consultar precio"}
+    return (
+    <section className="section machine-details-page">
+        <div className="container">
+            
+            {/* 1. CONTENEDOR PRINCIPAL DE DOS COLUMNAS */}
+            <div className="machine-details-content-wrapper">
+            
+                {/* COLUMNA IZQUIERDA: IMAGEN */}
+                <div className="machine-details-media">
+                    <img 
+                        src={machine.imagenUrl || "/placeholder-machine.jpg"} 
+                        alt={machine.maquinaNombre} 
+                        className="main-machine-image"
+                    />
                 </div>
-              </div>
-            </article>
-          ))}
+                
+                {/* COLUMNA DERECHA: DETALLES, PRECIO Y ACCIÓN */}
+                <div className="machine-details-info">
+                    
+                    {/* TÍTULO Y DESCRIPCIÓN */}
+                    <h1 className="machine-title">{machine.maquinaNombre}</h1>
+         
+
+                    <div className="machine-description-long">
+                        {/* Asumiendo que maquinaDescripcion es larga */}
+                        <p>{machine.maquinaDescripcion}</p>
+                    </div>
+
+                    {/* SECCIÓN DE PRECIO Y ACCIÓN (como la caja amarilla) */}
+                    <div className="machine-purchase-box">
+                        <div className="machine-price-display">
+                            {machine.maquinaPrecio != null && !Number.isNaN(+machine.maquinaPrecio)
+                                ? formatMoney(machine.maquinaPrecio)
+                                : "Consultar precio"}
+                        </div>
+                        
+                        <div className="machine-actions">
+                            {/* Este es el botón principal "Consultar/Comprar" */}
+                            <a href="#contacto" className="button is-primary machine-main-btn">
+                                Solicitar Cotización
+                            </a>
+                        </div>
+                        
+                      
+                    </div>
+                </div> 
+            </div> {/* Fin de .machine-details-content-wrapper */}
         </div>
-      </div>
     </section>
-  );
+);
 }
