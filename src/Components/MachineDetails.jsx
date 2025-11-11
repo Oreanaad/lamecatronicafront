@@ -67,9 +67,7 @@ setMachine(data);
                         
                         <div className="machine-actions">
                             {/* Este es el botón principal "Consultar/Comprar" */}
-                            <a href="#contacto" className="button is-primary machine-main-btn">
-                                Solicitar Cotización
-                            </a>
+                           
                         </div>
                         
                       
