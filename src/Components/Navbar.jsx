@@ -11,11 +11,14 @@ export default function Navbar() {
         </a>
 
         <nav className="nav__links">
-      
-          <a href="#industrias">Nosotros</a>
-          <a href="#maquinas">Productos</a>
-           <a href="http://lamecatronicac.myvnc.com//wwpbaseobjects.notauthorized.aspx?GxObject=Home4">Login</a>
-   
+        
+          {/* 🔑 CORRECCIÓN: Usar /#ancla para ir a la página principal y luego a la sección */}
+          <a href="/#industrias">Nosotros</a>
+          <a href="/#maquinas">Productos</a>
+          
+          {/* El enlace de Login está bien */}
+          <a href="http://lamecatronicac.myvnc.com//wwpbaseobjects.notauthorized.aspx?GxObject=Home4">Login</a>
+    
         </nav>
 
         <button className="nav__burger" aria-label="menu">

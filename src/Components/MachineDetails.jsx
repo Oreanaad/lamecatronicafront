@@ -29,52 +29,44 @@ setMachine(data);
     if (err) return <section className="section"><div className="container" style={{color:"crimson"}}>{err}</div></section>;
     if (!machine) return <section className="section"><div className="container">Máquina no encontrada.</div></section>;
 
-    return (
-    <section className="section machine-details-page">
-        <div className="container">
-            
-            {/* 1. CONTENEDOR PRINCIPAL DE DOS COLUMNAS */}
-            <div className="machine-details-content-wrapper">
-            
-                {/* COLUMNA IZQUIERDA: IMAGEN */}
-                <div className="machine-details-media">
-                    <img 
-                        src={machine.imagenUrl || "/placeholder-machine.jpg"} 
-                        alt={machine.maquinaNombre} 
-                        className="main-machine-image"
-                    />
-                </div>
+return (
+        <section className="section machine-details-page">
+            <div className="container">
                 
-                {/* COLUMNA DERECHA: DETALLES, PRECIO Y ACCIÓN */}
-                <div className="machine-details-info">
+                {/* 🔑 ESTE ES EL CONTENEDOR PRINCIPAL QUE DEBE ENVOLVER TODO el contenido de la máquina. */}
+                {/* Aquí es donde se aplican el fondo blanco, el padding, el borde y la sombra.      */}
+                <div className="machine-details-content-wrapper">
                     
-                    {/* TÍTULO Y DESCRIPCIÓN */}
-                    <h1 className="machine-title">{machine.maquinaNombre}</h1>
-         
-
-                    <div className="machine-description-long">
-                        {/* Asumiendo que maquinaDescripcion es larga */}
-                        <p>{machine.maquinaDescripcion}</p>
-                    </div>
-
-                    {/* SECCIÓN DE PRECIO Y ACCIÓN (como la caja amarilla) */}
-                    <div className="machine-purchase-box">
-                        <div className="machine-price-display">
-                            {machine.maquinaPrecio != null && !Number.isNaN(+machine.maquinaPrecio)
-                                ? formatMoney(machine.maquinaPrecio)
-                                : "Consultar precio"}
+                    {/* COLUMNA 1: IMAGEN */}
+                    <div className="machine-details-media">
+                        <div className="image-aspect-ratio-wrapper">
+                            <img 
+                                src={machine.imagenUrl || "/placeholder-machine.jpg"} 
+                                alt={machine.maquinaNombre} 
+                                className="main-machine-image"
+                            />
                         </div>
-                        
-                        <div className="machine-actions">
-                            {/* Este es el botón principal "Consultar/Comprar" */}
-                           
-                        </div>
-                        
-                      
                     </div>
-                </div> 
-            </div> {/* Fin de .machine-details-content-wrapper */}
-        </div>
-    </section>
-);
+                    
+                    {/* COLUMNA 2: DETALLES (Título, Descripción, Precio) */}
+                    <div className="machine-details-info">
+                        
+                        <h1 className="machine-title">{machine.maquinaNombre}</h1>
+                        
+                        <div className="machine-description-long">
+                            <pre className="machine-description-pre">{machine.maquinaDescripcion}</pre>
+                        </div>
+
+                        <div className="machine-purchase-box">
+                            <div className="machine-price-display">
+                                {machine.maquinaPrecio != null && !Number.isNaN(+machine.maquinaPrecio)
+                                    ? formatMoney(machine.maquinaPrecio)
+                                    : "Consultar precio"}
+                            </div>
+                        </div> 
+                    </div> 
+                </div> {/* <--- CIERRE CORRECTO DE .machine-details-content-wrapper */}
+            </div>
+        </section>
+    );
 }

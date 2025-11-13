@@ -1,52 +1,114 @@
 /* Archivo: machineDetails.css */
 
-/* --- Contenedor de Dos Columnas --- */
+/* --- 1. CONTENEDOR PRINCIPAL (RECUAadro BLANCO) --- */
 .machine-details-content-wrapper {
-    display: flex; /* Habilita el diseño flexible */
-    gap: 40px;     /* Espacio entre la imagen y los detalles */
-    flex-wrap: wrap; /* Permite que las columnas se apilen en móviles */
+    /* CLAVE: Diseño de Dos Columnas */
+    display: flex; 
+    gap: 30px; 
+    flex-wrap: wrap; 
+    
+    /* 🔑 CLAVE: CENTRADO VERTICAL DE COLUMNAS */
+    /* Alinea las dos columnas (imagen y detalles) al centro una de la otra. */
+    align-items: center; 
+    
+    /* Estilos del Recuadro Principal */
+    width: 100%; /* Ocupa el 100% del ancho del .container centrado */
+    background-color: #ffffff; 
+    padding: 60px 40px; 
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); 
 }
 
-/* --- Columna Izquierda (Imagen) --- */
+/* --- 2. COLUMNA 1: IMAGEN --- */
 .machine-details-media {
-    flex: 1 1 40%; /* Toma el 40% del espacio en escritorio */
-    max-width: 40%;
+    flex: 0 0 35%; 
+    max-width: 35%;
+    
+    /* Estilos de la caja de la imagen */
+    background-color: #ffffff; 
+    padding: 20px; 
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+    
+    /* Permite que la altura sea definida por el contenido */
+    height: auto; 
+    position: relative; 
+    padding-bottom: 20px; /* Padding para que la imagen no toque el borde inferior */
+    
+    /* Desactivar Aspect Ratio forzado */
+    padding-top: 20px; 
 }
 
+/* 🔑 NUEVA REGLA: Forzar que la imagen llene el contenedor */
 .main-machine-image {
     width: 100%;
-    height: auto;
+    height: 100%;
+    /* Asegura que la imagen se adapte sin distorsionarse demasiado */
+    object-fit: contain; 
     display: block;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil como el libro */
-}
-
-/* --- Columna Derecha (Detalles) --- */
-.machine-details-info {
-    flex: 1 1 50%; /* Toma el 50% del espacio restante */
-}
-
-/* --- Caja de Precio (El recuadro amarillo) --- */
-.machine-purchase-box {
-    background-color: #F8F5EE; /* Fondo claro o amarillo muy tenue */
     border-radius: 8px;
-    padding: 20px;
-    margin-top: 30px;
-    border: 1px solid #e0d9c9;
 }
 
-.machine-price-display {
-    font-size: 2.5em;
-    font-weight: bold;
-    color: #333; /* O un color oscuro */
-    margin-bottom: 10px;
+/* --- 3. COLUMNA 2: DETALLES (Contenedor que se ajusta a la imagen) --- */
+.machine-details-info {
+    flex: 1 1 60%; 
+    min-width: 0; 
+    
+    /* 🔑 CLAVE: Contenedor Flex para manejar el espaciado vertical */
+    display: flex;
+    flex-direction: column;
+    
+    /* El contenido debe ir de arriba abajo */
+    justify-content: flex-start;
+    
+    /* Si la descripción es corta, la caja de precio se empuja hacia abajo */
+    height: 100%; 
+}
+
+/* --- Título --- */
+.machine-details-info .machine-title {
+    margin-top: 0; 
+    margin-bottom: 20px; 
+}
+
+/* --- Contenedor de Descripción (Permite crecimiento) --- */
+.machine-description-long {
+    /* 🔑 CLAVE: Esto asegura que el espacio vacío se use aquí */
+    flex-grow: 1; 
+    margin-bottom: 20px; 
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.machine-description-long .machine-description-pre {
+    white-space: pre-wrap; 
+    margin: 0; 
+    padding: 0;
+}
+
+/* --- Caja de Precio (Se adhiere al fondo de la columna) --- */
+.machine-purchase-box {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 15px 20px;
+    /* 🔑 CLAVE: Deshabilitamos el margen que podría causar inconsistencia */
+    margin-top: 0; 
+    width: 100%; 
+    box-sizing: border-box; 
+    flex-shrink: 0; 
 }
 
 /* --- Media Queries (Para móviles) --- */
 @media (max-width: 768px) {
     .machine-details-content-wrapper {
-        flex-direction: column; /* Apila las columnas */
+        flex-direction: column; 
+        padding: 30px 20px;
+        align-items: flex-start; 
     }
-    .machine-details-media {
-        max-width: 100%; /* La imagen ocupa todo el ancho */
+    
+    .machine-details-media, .machine-details-info {
+        max-width: 100%; 
+        flex-basis: auto;
     }
 }
