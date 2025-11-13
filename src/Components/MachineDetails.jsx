@@ -21,9 +21,8 @@ export default function MachineDetails() {
                 const data = await fetchMaquinaById(id);
                 setMachine(data);
 
-                // 🔥 Traer imágenes hijas
                 const imgs = await fetchMaquinaImagenes(id);
-                setImagenesExtra(imgs);
+                setImagenesExtra(imgs || []);
 
             } catch (e) {
                 console.error("fetchMaquinaById error:", e);
@@ -38,11 +37,21 @@ export default function MachineDetails() {
     if (err) return <section className="section"><div className="container" style={{color:"crimson"}}>{err}</div></section>;
     if (!machine) return <section className="section"><div className="container">Máquina no encontrada.</div></section>;
 
-    // 🔥 Combinar imagen principal + imágenes extra
+    // ✔ obtener imagen principal (case-insensitive seguro)
+    const imagenPrincipal = machine.ImagenUrl || machine.imagenUrl || null;
+
+    // ✔ combinar imágenes hijas
     const imagenes = [
-        machine.imagensUrl,
-        ...imagenesExtra.map(i => i.ImagensUrl)
+        imagenPrincipal,
+        ...imagenesExtra
+            .map(i => i.ImagensUrl)
+            .filter(Boolean)
     ].filter(Boolean);
+
+    // ✔ si no hay imágenes → usar placeholder
+    const imagenesFinal = imagenes.length > 0 
+        ? imagenes 
+        : ["/placeholder-machine.jpg"];
 
     return (
         <section className="section machine-details-page">
@@ -53,18 +62,17 @@ export default function MachineDetails() {
                     {/* COLUMNA 1: IMÁGENES */}
                     <div className="machine-details-media">
 
-                        {/* 🔥 SLIDER DE IMÁGENES */}
                         <Swiper
                             spaceBetween={10}
                             slidesPerView={1}
-                            loop={true}
+                            loop={imagenesFinal.length > 1} 
                             style={{ width: "100%", borderRadius: "12px" }}
                         >
-                            {imagenes.map((img, idx) => (
+                            {imagenesFinal.map((img, idx) => (
                                 <SwiperSlide key={idx}>
                                     <div className="image-aspect-ratio-wrapper">
                                         <img 
-                                            src={img || "/placeholder-machine.jpg"} 
+                                            src={img}
                                             alt={`Imagen ${idx}`}
                                             className="main-machine-image"
                                         />
