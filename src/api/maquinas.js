@@ -43,3 +43,9 @@ export function formatMoney(v) {
     // fallback simple
     return "$ " + Number(v).toLocaleString("es-AR");
 }
+
+export async function fetchMaquinaImagenes(id) {
+  const res = await fetch(`${BACKEND_BASE_URL}/api/maquinas/${id}/imagenes`);
+  if (!res.ok) throw new Error("Error obteniendo imágenes");
+  return res.json();
+}
