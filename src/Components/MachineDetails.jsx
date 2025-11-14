@@ -97,9 +97,18 @@ export default function MachineDetails() {
                         <div className="machine-description-long">
                             <pre className="machine-description-pre">{machine.maquinaDescripcion}</pre>
                         </div>
-                        <div className="machine-description-long"> 
-                            <p>{machine.maquinaLink}</p>
-                             </div>
+
+                  
+<div className="machine-link-box">
+    <span className="machine-link-label">🔗 Chequea nuestro canal de youtube:</span>
+    <a href={machine.maquinaLink} target="_blank" rel="noopener noreferrer" className="machine-link-url">
+        {machine.maquinaLink}
+    </a>
+</div>
+
+
+
+
                         <div className="machine-purchase-box">
                             <div className="machine-price-display">
                                 {machine.maquinaPrecio != null && !Number.isNaN(+machine.maquinaPrecio)
