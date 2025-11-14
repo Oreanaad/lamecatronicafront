@@ -3,9 +3,15 @@ import { useParams } from "react-router-dom";
 import { fetchMaquinaById, fetchMaquinaImagenes, formatMoney } from "../api/maquinas"; 
 import "../styles/machineDetails.css"; 
 
-// 🔥 Slider
+import "../styles/swiper.css";
+
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+
+// ESTOS SÍ O SÍ SON NECESARIOS
+import "swiper/css";           // 👉 CSS base REAL de Swiper
+import "swiper/css/pagination";
+
+import { Pagination } from "swiper/modules";
 
 export default function MachineDetails() {
 
@@ -62,24 +68,21 @@ export default function MachineDetails() {
                     {/* COLUMNA 1: IMÁGENES */}
                     <div className="machine-details-media">
 
-                        <Swiper
-                            spaceBetween={10}
-                            slidesPerView={1}
-                            loop={imagenesFinal.length > 1} 
-                            style={{ width: "100%", borderRadius: "12px" }}
-                        >
-                            {imagenesFinal.map((img, idx) => (
-                                <SwiperSlide key={idx}>
-                                    <div className="image-aspect-ratio-wrapper">
-                                        <img 
-                                            src={img}
-                                            alt={`Imagen ${idx}`}
-                                            className="main-machine-image"
-                                        />
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
+                <Swiper
+    modules={[Pagination]}
+    pagination={{ clickable: true }}
+    spaceBetween={10}
+    slidesPerView={1}
+    loop={imagenesFinal.length > 1}
+>
+    {imagenesFinal.map((img, idx) => (
+        <SwiperSlide key={idx}>
+            <img src={img} className="main-machine-image" />
+        </SwiperSlide>
+    ))}
+</Swiper>
+
+
 
                     </div>
                     
