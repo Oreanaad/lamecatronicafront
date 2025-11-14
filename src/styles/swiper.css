@@ -23,3 +23,34 @@
   background: #000;
   opacity: 1;
 }
+/* --- FLECHAS DEL SWIPER --- */
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #8b0c0c !important; /* tu marca vinotinto */
+    width: 28px !important;
+    height: 28px !important;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    backdrop-filter: blur(4px);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 14px !important;
+    font-weight: 900;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: white;
+    color: #600707 !important;
+}
+
+/* Que las flechas se queden dentro de la imagen */
+.machine-details-media .swiper-button-next,
+.machine-details-media .swiper-button-prev {
+    top: 50%;
+    transform: translateY(-50%);
+}

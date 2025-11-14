@@ -1,105 +1,126 @@
-/* Archivo: machineDetails.css */
+/* ===========================
+   GLOBAL (esto NO debe ir dentro de una clase)
+=========================== */
 
-/* --- 1. CONTENEDOR PRINCIPAL (RECUAadro BLANCO) --- */
+*{ box-sizing: border-box }
+html,body,#root{ height:100% }
+:root { color-scheme: light; }
+
+html{ background:#efeeee !important; }
+
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial;
+  color: var(--text);
+  background: var(--bg) !important;
+}
+
+/* Utilidades */
+.container{ width:min(1120px, 92%); margin-inline:auto }
+.section{ padding: 20px 10px}
+.h2{ font-size: clamp(24px, 3.2vw, 32px); margin:0; color: var(--brand); }
+.lead{ color: var(--gray-600); margin: 0 0 24px }
+.chips{ display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:16px 0 0 }
+.chip{ border:1px solid var(--stroke); padding:8px 12px; border-radius:999px; color:var(--gray-600); background:#fff }
+.eyebrow{ display:inline-block; letter-spacing:.12em; color:var(--gray-600); text-transform:uppercase; font-size:12px; margin-bottom:10px }
+
+/* Botones */
+.btn{
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  border:none; color:#fff;
+  padding:12px 18px; border-radius:12px; font-weight:600;
+  cursor:pointer; box-shadow: var(--shadow); text-decoration:none; display:inline-block
+}
+.btn:hover{ filter: brightness(1.05) }
+.btn:focus{ outline: 3px solid color-mix(in oklab, var(--brand) 40%, white); outline-offset: 2px }
+.btn--sm{ padding:8px 12px; border-radius:10px; font-size:14px }
+.btn--ghost{
+  background: transparent;
+  color: var(--brand);
+  border: 2px solid var(--brand);
+}
+.btn--ghost:hover{ background: color-mix(in oklab, var(--brand) 10%, white) }
+
+/* ===========================
+   MACHINE DETAILS
+=========================== */
+
 .machine-details-content-wrapper {
-    /* CLAVE: Diseño de Dos Columnas */
-    display: flex; 
+    display: flex;
     gap: 30px; 
     flex-wrap: wrap; 
-    
-    /* 🔑 CLAVE: CENTRADO VERTICAL DE COLUMNAS */
-    /* Alinea las dos columnas (imagen y detalles) al centro una de la otra. */
     align-items: center; 
-    
-    /* Estilos del Recuadro Principal */
-    width: 100%; /* Ocupa el 100% del ancho del .container centrado */
+    width: 100%;
     background-color: #ffffff; 
     padding: 60px 40px; 
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); 
 }
 
-/* --- 2. COLUMNA 1: IMAGEN --- */
+/* --- COLUMNA 1: IMAGEN --- */
 .machine-details-media {
     flex: 0 0 35%; 
     max-width: 35%;
-    
-    /* Estilos de la caja de la imagen */
     background-color: #ffffff; 
-    padding: 20px; 
+    padding: 10px; 
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
-    
-    /* Permite que la altura sea definida por el contenido */
-    height: auto; 
+    min-height: 380px; 
     position: relative; 
-    padding-bottom: 20px; /* Padding para que la imagen no toque el borde inferior */
-    
-    /* Desactivar Aspect Ratio forzado */
+    padding-bottom: 20px;
     padding-top: 20px; 
 }
 
-/* 🔑 NUEVA REGLA: Forzar que la imagen llene el contenedor */
 .main-machine-image {
     width: 100%;
     height: 100%;
-    /* Asegura que la imagen se adapte sin distorsionarse demasiado */
     object-fit: contain; 
     display: block;
     border-radius: 8px;
 }
 
-/* --- 3. COLUMNA 2: DETALLES (Contenedor que se ajusta a la imagen) --- */
+/* --- COLUMNA 2 --- */
 .machine-details-info {
     flex: 1 1 60%; 
     min-width: 0; 
-    
-    /* 🔑 CLAVE: Contenedor Flex para manejar el espaciado vertical */
     display: flex;
     flex-direction: column;
-    
-    /* El contenido debe ir de arriba abajo */
     justify-content: flex-start;
-    
-    /* Si la descripción es corta, la caja de precio se empuja hacia abajo */
     height: 100%; 
 }
 
-/* --- Título --- */
 .machine-details-info .machine-title {
-    margin-top: 0; 
-    margin-bottom: 20px; 
+  margin-top: 0;
+    margin-bottom: 20px;
+
+    /* 🔥 FIX: evitar que se "escape" del container */
+    max-width: 100%;
+    width: 100%;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
 }
 
-/* --- Contenedor de Descripción (Permite crecimiento) --- */
 .machine-description-long {
-    /* 🔑 CLAVE: Esto asegura que el espacio vacío se use aquí */
     flex-grow: 1; 
     margin-bottom: 20px; 
     overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
 }
 
-.machine-description-long .machine-description-pre {
-    white-space: pre-wrap; 
-    margin: 0; 
-    padding: 0;
-}
+.machine-description-pre { white-space: pre-wrap; margin: 0; }
 
-/* --- Caja de Precio (Se adhiere al fondo de la columna) --- */
+/* --- Caja precio --- */
 .machine-purchase-box {
     background-color: #f5f5f5;
     border-radius: 8px;
     padding: 15px 20px;
-    /* 🔑 CLAVE: Deshabilitamos el margen que podría causar inconsistencia */
-    margin-top: 0; 
-    width: 100%; 
+    width: 100%;
     box-sizing: border-box; 
     flex-shrink: 0; 
 }
 
-/* --- Media Queries (Para móviles) --- */
+/* --- Media Queries --- */
 @media (max-width: 768px) {
     .machine-details-content-wrapper {
         flex-direction: column; 
@@ -110,25 +131,32 @@
     .machine-details-media, .machine-details-info {
         max-width: 100%; 
         flex-basis: auto;
+        width: 100%;
     }
 }
 
-.machine-details-media {
-  width: 100%;
+/* ===========================
+   SWIPER FIX
+=========================== */
+
+.machine-details-media .swiper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
 }
 
-.image-aspect-ratio-wrapper {
-  width: 100%;
-  height: 400px; /* Provisorio: así o sí se ve */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.machine-details-media .swiper-wrapper {
+    width: 100% !important;
 }
 
-.main-machine-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.machine-details-media .swiper-slide {
+    width: 100% !important;
 }
-/* === FIX SWIPER SIN ROMPER TU CARD === */
 
+@media (max-width: 768px) {
+    .machine-details-media {
+        padding: 10px !important;
+    }
+}

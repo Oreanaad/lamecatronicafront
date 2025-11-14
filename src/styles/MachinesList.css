@@ -30,16 +30,27 @@
 .machine-list-media{
   position:relative;
   z-index:0;
-  aspect-ratio:16/9;
-  background:#f7f7f7;
+
+  /* 🔥 ALTO IGUAL PARA TODAS LAS MÁQUINAS */
+  aspect-ratio: 1 / 1; /* cuadrado perfecto – podés poner 4/3 si preferís */
+
+  background:#fff;  /* Fondo blanco prolijo */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border-bottom:1px solid #eee; 
 }
+
 
 .machine-list-img{
   width:100%;
   height:100%;
-  display:block;
-  object-fit:cover;
+  object-fit: contain;   /* 👈 ya NO recorta, ahora ajusta */
+  object-position: center;
+  padding: 6px;          /* margen visual para fotos grandes */
 }
+
 
 .machine-list-body{
   position:relative;

@@ -6,12 +6,13 @@ import "../styles/machineDetails.css";
 import "../styles/swiper.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css/navigation";
+import { Navigation, Pagination } from "swiper/modules";
 
 // ESTOS SÍ O SÍ SON NECESARIOS
 import "swiper/css";           // 👉 CSS base REAL de Swiper
 import "swiper/css/pagination";
 
-import { Pagination } from "swiper/modules";
 
 export default function MachineDetails() {
 
@@ -69,8 +70,9 @@ export default function MachineDetails() {
                     <div className="machine-details-media">
 
                 <Swiper
-    modules={[Pagination]}
+    modules={[Pagination, Navigation]}
     pagination={{ clickable: true }}
+    navigation={true}        // 🚀 Activa los botones
     spaceBetween={10}
     slidesPerView={1}
     loop={imagenesFinal.length > 1}
@@ -84,6 +86,7 @@ export default function MachineDetails() {
 
 
 
+
                     </div>
                     
                     {/* COLUMNA 2: DETALLES */}
@@ -94,7 +97,9 @@ export default function MachineDetails() {
                         <div className="machine-description-long">
                             <pre className="machine-description-pre">{machine.maquinaDescripcion}</pre>
                         </div>
-
+                        <div className="machine-description-long"> 
+                            <p>{machine.maquinaLink}</p>
+                             </div>
                         <div className="machine-purchase-box">
                             <div className="machine-price-display">
                                 {machine.maquinaPrecio != null && !Number.isNaN(+machine.maquinaPrecio)
