@@ -53,17 +53,30 @@
 
 
 .machine-list-body{
-  position:relative;
-  z-index:2;
-  padding:14px 14px 16px;
-  background:#fff;
+
+  position: relative;
+  z-index: 2;
+  padding: 14px 14px 16px;
+  background: #fff;
+  min-height: 100px; /* 👈 ALTO FIJO DEL BODY */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
 }
 
-.machine-list-title{
-  margin:0 0 8px;
-  font-weight:700;
-  line-height:1.2;
+.machine-list-title {
+  margin: 0 0 8px;
+  font-weight: 700;
+  line-height: 1.2;
+  min-height: 48px;   /* 👈 (2 líneas de altura) */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limita a 2 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
+
 
 .machine-list-link{
   text-decoration:none;
