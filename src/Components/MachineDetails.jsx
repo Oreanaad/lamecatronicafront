@@ -109,6 +109,7 @@ export default function MachineDetails() {
             className="machine-link-url"
         >
             {machine.maquinaLink}
+            <p></p>
         </a>
     </div>
 )}

@@ -7,7 +7,7 @@ export default function Navbar() {
       <div className="container nav__inner">
         {/* logo a la izquierda */}
         <a href="/" className="nav__brand">
-          <img src="/logo.jpg" alt="Mecatrónica Carbajal" className="brand-logo" />
+          <img src="/logo.png" alt="Mecatrónica Carbajal" className="brand-logo" />
         </a>
 
         <nav className="nav__links">
