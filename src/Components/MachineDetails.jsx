@@ -99,12 +99,20 @@ export default function MachineDetails() {
                         </div>
 
                   
-<div className="machine-link-box">
-    <span className="machine-link-label">🔗 Chequea nuestro canal de youtube:</span>
-    <a href={machine.maquinaLink} target="_blank" rel="noopener noreferrer" className="machine-link-url">
-        {machine.maquinaLink}
-    </a>
-</div>
+{machine.maquinaLink && machine.maquinaLink.trim() !== "" && (
+    <div className="machine-link-box">
+        <span className="machine-link-label">🔗 Chequea nuestro canal de youtube:  </span>
+        <a 
+            href={machine.maquinaLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="machine-link-url"
+        >
+            {machine.maquinaLink}
+        </a>
+    </div>
+)}
+
 
 
 

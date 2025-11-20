@@ -47,68 +47,66 @@ body{
 
 .machine-details-content-wrapper {
     display: flex;
-    gap: 30px; 
-    flex-wrap: wrap; 
-    align-items: center; 
+    gap: 30px;
+    flex-wrap: nowrap;
+    align-items: flex-start;     /* 🔥 FIX IMPORTANTE */
     width: 100%;
-    background-color: #ffffff; 
-    padding: 60px 40px; 
+    background-color: #ffffff;
+    padding: 60px 40px;
     border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 /* --- COLUMNA 1: IMAGEN --- */
 .machine-details-media {
-    flex: 0 0 35%; 
-    max-width: 35%;
-    background-color: #ffffff; 
-    padding: 10px; 
+    flex: 1;
+    max-width: 50%;              /* 🔥 FIX */
+    background-color: #ffffff;
+    padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
-    min-height: 380px; 
-    position: relative; 
-    padding-bottom: 20px;
-    padding-top: 20px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    min-height: 400px;
+    position: relative;
 }
 
 .main-machine-image {
     width: 100%;
     height: 100%;
-    object-fit: contain; 
+    object-fit: contain;
     display: block;
     border-radius: 8px;
 }
 
 /* --- COLUMNA 2 --- */
 .machine-details-info {
-    flex: 1 1 60%; 
-    min-width: 0; 
+    flex: 1;
+    max-width: 50%;              /* 🔥 FIX */
+    min-width: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 100%; 
+    height: 100%;
 }
 
 .machine-details-info .machine-title {
-  margin-top: 0;
+    margin-top: 0;
     margin-bottom: 20px;
-
-    /* 🔥 FIX: evitar que se "escape" del container */
     max-width: 100%;
-    width: 100%;
     overflow-wrap: anywhere;
-    word-wrap: break-word;
     word-break: break-word;
-    white-space: normal;
 }
 
+/* --- Descripción --- */
 .machine-description-long {
-    flex-grow: 1; 
-    margin-bottom: 20px; 
+    flex-grow: 1;
+    margin-bottom: 20px;
     overflow-wrap: break-word;
 }
 
-.machine-description-pre { white-space: pre-wrap; margin: 0; }
+.machine-description-pre {
+    white-space: pre-wrap;
+    margin: 0;
+}
 
 /* --- Caja precio --- */
 .machine-purchase-box {
@@ -116,23 +114,8 @@ body{
     border-radius: 8px;
     padding: 15px 20px;
     width: 100%;
-    box-sizing: border-box; 
-    flex-shrink: 0; 
-}
-
-/* --- Media Queries --- */
-@media (max-width: 768px) {
-    .machine-details-content-wrapper {
-        flex-direction: column; 
-        padding: 30px 20px;
-        align-items: flex-start; 
-    }
-    
-    .machine-details-media, .machine-details-info {
-        max-width: 100%; 
-        flex-basis: auto;
-        width: 100%;
-    }
+    box-sizing: border-box;
+    flex-shrink: 0;
 }
 
 /* ===========================
@@ -155,8 +138,60 @@ body{
     width: 100% !important;
 }
 
+/* ===========================
+   LINK DE LA MÁQUINA
+=========================== */
+
+.machine-link-box {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.machine-link-label {
+    font-weight: 700;
+    color: var(--brand, #8b0c0c);
+    white-space: nowrap;
+}
+
+.machine-link-url {
+    color: #0a4abf;
+    text-decoration: none;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+
+.machine-link-url:hover {
+    text-decoration: underline;
+    color: var(--brand, #8b0c0c);
+}
+
+/* ===========================
+   MÓVILES
+=========================== */
+
 @media (max-width: 768px) {
-    .machine-details-media {
-        padding: 10px !important;
+    .machine-details-content-wrapper {
+        flex-direction: column;
+        align-items: center !important;
+        padding: 30px 20px;
+    }
+
+    .machine-details-media,
+    .machine-details-info {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .machine-link-box {
+        font-size: 14px;
+        padding: 10px 12px;
     }
 }
