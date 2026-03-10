@@ -17,7 +17,7 @@ export default function Navbar() {
           <a href="/#maquinas">Productos</a>
           
           {/* El enlace de Login está bien */}
-          <a href="https://lamecatronica.ddns.net/wwpbaseobjects.notauthorized.aspx?GxObject=Home4">Login</a>
+          <a href="https://lamecatronica.ddns.net/wwpbaseobjects.seclogin.aspx">Login</a>
     
         </nav>
 
