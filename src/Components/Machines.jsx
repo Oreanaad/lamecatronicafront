@@ -9,23 +9,43 @@ const [loading, setLoading] = useState(true);
 const [err, setErr] = useState("");
 
 useEffect(() => {
-(async () => {
-try {
-const data = await fetchMaquinas();
-const visibles = (data || [])
-.filter(x => x.maquinaWebEstado === true || x.maquinaWebEstado === 1)
- .slice(0, 12);
-setItems(visibles);
- } catch (e) {
-console.error("fetchMaquinas error:", e);
-setErr(e.message || "Error cargando máquinas");
-} finally {
-setLoading(false);
- }
- })();
+  (async () => {
+    try {
+      const data = await fetchMaquinas();
+      
+      // Filtramos las máquinas en true, y quitamos el .slice()
+      const visibles = (data || []).filter(
+        x => x.maquinaWebEstado === true || x.maquinaWebEstado === 1
+      );
+      
+      setItems(visibles); // Ahora 'visibles' tendrá el total de las que pasaron el filtro
+    } catch (e) {
+      console.error("fetchMaquinas error:", e);
+      setErr(e.message || "Error cargando máquinas");
+    } finally {
+      setLoading(false);
+    }
+  })();
 }, []);
-
-
+useEffect(() => {
+  (async () => {
+    try {
+      const data = await fetchMaquinas();
+      
+      // Filtramos las máquinas en true, y quitamos el .slice()
+      const visibles = (data || []).filter(
+        x => x.maquinaWebEstado === true || x.maquinaWebEstado === 1
+      );
+      
+      setItems(visibles); // Ahora 'visibles' tendrá el total de las que pasaron el filtro
+    } catch (e) {
+      console.error("fetchMaquinas error:", e);
+      setErr(e.message || "Error cargando máquinas");
+    } finally {
+      setLoading(false);
+    }
+  })();
+}, []);
 if (loading) return <section className="section"><div className="container">Cargando máquinas…</div></section>;
 if (err) return (
 <section className="section">
